@@ -1,1 +1,1 @@
-# Galaxy_invaders_game
+Игра Galaxy invaders. Написана на Python с библиотекой Pygame.
