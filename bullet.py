@@ -2,27 +2,32 @@ import pygame
 from pygame.sprite import Sprite
 
 class Bullet(Sprite):
-	# Класс для управления пулями.
-	def __init__(self, ai_settings, screen, ship):
-		# Вызов функции super необходим для корректной реализации
-		# наследования от класса Sprite.
-		super().__init__()
-		self.screen = screen
-		
-		# Создаем пулю и задаем ей позицию.
-		self.rect = pygame.Rect(0, 0, ai_settings.bullet_width, 
-			ai_settings.bullet_height)
-		self.rect.centerx = ship.rect.centerx
-		self.rect.top = ship.rect.top
-		self.y = float(self.rect.y)
-		
-		self.color = ai_settings.bullet_color
-		self.speed_factor = ai_settings.bullet_speed_factor
-		
-	def update(self):
-		# Обновляем позицию пули.
-		self.y -= self.speed_factor
-		self.rect.y = self.y
-		
-	def draw_bullet(self):
-		pygame.draw.rect(self.screen, self.color, self.rect)
+    """РљР»Р°СЃСЃ РґР»СЏ СѓРїСЂР°РІР»РµРЅРёСЏ РїСѓР»СЏРјРё."""
+
+    def __init__(self, ai_settings, screen, ship):
+        """РЎРѕР·РґР°РµС‚ РѕР±СЉРµРєС‚ РїСѓР»Рё РІ С‚РµРєСѓС‰РµР№ РїРѕР·РёС†РёРё РєРѕСЂР°Р±Р»СЏ."""
+        super(Bullet, self).__init__()
+        self.screen = screen
+
+        # РЎРѕР·РґР°РµС‚ РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРє РїСѓР»Рё РІ (0, 0), Р·Р°С‚РµРј Р·Р°РґР°РµС‚ РµРјСѓ РєРѕСЂСЂРµРєС‚РЅСѓСЋ РїРѕР·РёС†РёСЋ.
+        self.rect = pygame.Rect(0, 0, ai_settings.bullet_width,
+            ai_settings.bullet_height)
+        self.rect.centerx = ship.rect.centerx
+        self.rect.top = ship.rect.top
+        
+        # РџРѕР·РёС†РёСЏ РїСѓР»Рё.
+        self.y = float(self.rect.y)
+        
+        self.color = ai_settings.bullet_color
+        self.speed_factor = ai_settings.bullet_speed_factor
+
+    def update(self):
+        """РћР±РЅРѕРІР»РµРЅРёРµ РїРѕР·РёС†РёРё РїСѓР»Рё."""
+        # Update the decimal position of the bullet.
+        self.y -= self.speed_factor
+        # Update the rect position.
+        self.rect.y = self.y
+
+    def draw_bullet(self):
+        """РћС‚СЂРёСЃРѕРІРєР° РїСѓР»Рё."""
+        pygame.draw.rect(self.screen, self.color, self.rect)
