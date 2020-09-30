@@ -1,5 +1,5 @@
 class GameStats():
-    """Track statistics for Alien Invasion."""
+    """Отслеживание статистики."""
     
     def __init__(self, ai_settings):
         """Инициализируем статистику, изменяющуюся в ходе игры."""

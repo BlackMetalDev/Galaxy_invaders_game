@@ -74,10 +74,10 @@ def fire_bullet(ai_settings, screen, ship, bullets):
         bullets.add(new_bullet)
 
 def update_screen(ai_settings, screen, stats, sb, ship, aliens, bullets,
-        play_button):
+        play_button, bg):
     """Обновление изображения на экране."""
     # Перерисовываем экран каждую итерацию цикла.
-    screen.fill(ai_settings.bg_color)
+    screen.blit(bg, (0, 0))
     
     # Перерисовываем пули, корабль и пришельцев.
     for bullet in bullets.sprites():

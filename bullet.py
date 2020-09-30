@@ -14,8 +14,6 @@ class Bullet(Sprite):
 
         # Создает прямоугольник пули в (0, 0), затем задает ему корректную позицию.
         self.rect = self.image.get_rect()
-        #self.rect = pygame.Rect(0, 0, ai_settings.bullet_width,
-        #    ai_settings.bullet_height)
         self.rect.centerx = ship.rect.centerx
         self.rect.top = ship.rect.top
         
@@ -27,12 +25,9 @@ class Bullet(Sprite):
 
     def update(self):
         """Обновление позиции пули."""
-        # Update the decimal position of the bullet.
         self.y -= self.speed_factor
-        # Update the rect position.
         self.rect.y = self.y
 
     def draw_bullet(self):
         """Отрисовка пули."""
-        #pygame.draw.rect(self.screen, self.color, self.rect)
         self.screen.blit(self.image, self.rect)
