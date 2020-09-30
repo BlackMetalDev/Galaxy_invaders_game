@@ -9,8 +9,10 @@ class Button():
         
         # Назначение размеров и свойств кнопки.
         self.width, self.height = 200, 50
+        self.frame_width = 4
         self.button_color = (0, 255, 0)
-        self.text_color = (255, 255, 255)
+        self.frame_color = (50, 50, 50)
+        self.text_color = (0, 0, 0)
         self.font = pygame.font.SysFont(None, 48)
         
         # Построение объекта rect кнопки и выравнивание по центру экрана.
@@ -31,3 +33,6 @@ class Button():
         """Отрисовка кнопки и сообщения."""
         self.screen.fill(self.button_color, self.rect)
         self.screen.blit(self.msg_image, self.msg_image_rect)
+
+        # Отрисовка рамки
+        pygame.draw.rect(self.screen, self.frame_color, self.rect, self.frame_width)

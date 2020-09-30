@@ -58,7 +58,6 @@ def check_play_button(ai_settings, screen, stats, sb, play_button, ship,
         sb.prep_score()
         sb.prep_high_score()
         sb.prep_level()
-        sb.prep_ships()
         
         # Очистка списков пришельцев и пуль.
         aliens.empty()
@@ -153,9 +152,6 @@ def ship_hit(ai_settings, screen, stats, sb, ship, aliens, bullets):
     if stats.ships_left > 0:
         # Уменьшение ships_left.
         stats.ships_left -= 1
-        
-        # Обновить очки.
-        sb.prep_ships()
         
     else:
         stats.game_active = False
