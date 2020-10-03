@@ -12,7 +12,11 @@ class Bullet(Sprite):
         # Загрузка изображения пули.
         self.image = pygame.image.load('images/bullet.png')
 
-        # Создает прямоугольник пули в (0, 0), затем задает ему корректную позицию.
+        # Звук выстрела.
+        pygame.mixer.music.load('sound/shot.wav')
+        pygame.mixer.music.play(0)
+
+        # Создает прямоугольник пули в (0, 0), затем задает ему корректную позицию
         self.rect = self.image.get_rect()
         self.rect.centerx = ship.rect.centerx
         self.rect.top = ship.rect.top
