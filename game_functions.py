@@ -152,10 +152,11 @@ def ship_hit(ai_settings, screen, stats, sb, ship, aliens, bullets):
     if stats.ships_left > 0:
         # Уменьшение ships_left.
         stats.ships_left -= 1
-        
     else:
         stats.game_active = False
         pygame.mouse.set_visible(True)
+    pygame.mixer.music.load('sound/hit.wav')
+    pygame.mixer.music.play(0)
     
     # Очистка списков пришельцев и пуль.
     aliens.empty()
